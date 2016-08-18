@@ -1,0 +1,24 @@
+{
+  "name": "mud",
+  "version": "1.0.0",
+  "description": "a game (multi user dungeon)",
+  "main": "index.js",
+  "scripts": {
+    "bundle-js": "browserify lib/hello.js > static/hello.js",
+    "build-js": "babel src -d lib --source-maps",
+    "build": "npm run build-js && npm run bundle-js"
+  },
+  "keywords": [
+    "es6",
+    "es2015",
+    "demo"
+  ],
+  "author": "anuj2jain@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.13.2",
+    "browserify": "^13.1.0"
+  }
+}
