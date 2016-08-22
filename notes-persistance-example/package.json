@@ -5,7 +5,8 @@
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
     "start": "node ./bin/www",
-    "start-fs": "NOTES_MODEL=models/notes-fs node ./bin/www"
+    "start-fs": "NOTES_MODEL=models/notes-fs node ./bin/www",
+    "start-mongodb": "MONGO_URL=mongodb://localhost/notes-db NOTES_MODEL=models/notes-mongodb node ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -15,6 +16,7 @@
     "express": "^4.13.4",
     "file-stream-rotator": "0.0.7",
     "fs-extra": "^0.30.0",
+    "mongodb": "^2.2.7",
     "morgan": "^1.7.0",
     "serve-favicon": "^2.3.0"
   },
