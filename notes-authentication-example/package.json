@@ -1,0 +1,31 @@
+{
+  "name": "notes",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "SEQUELIZE_CONNECT=models/sequelize-sqlite.yaml NOTES_MODEL=models/notes-mongodb USERS_MODEL=models/users-rest USER_SERVICE_URL=http://localhost:3333 MONGO_URL=mongodb://localhost/notes-db node ./bin/www",
+    "postinstall": "bower install",
+    "bootstrapsetup": "cd bower_components/bootstrap && npm install && npm install grunt-cli ",
+    "buildbootstrap": "cp variables.less bower_components/bootstrap/less && cd bower_components/bootstrap && grunt"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.2.0",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "express-session": "^1.14.0",
+    "file-stream-rotator": "0.0.7",
+    "fs-extra": "^0.30.0",
+    "mongodb": "^2.2.7",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "restify": "^4.1.1",
+    "serve-favicon": "^2.3.0",
+    "session-file-store": "^0.2.1"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
