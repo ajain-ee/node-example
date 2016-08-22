@@ -11,6 +11,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const usersModel = require(process.env.USERS_MODEL
         ? path.join('..', process.env.USERS_MODEL)
         : '../models/users-rest');
+const TwitterStrategy = require('passport-twitter').Strategy;
 
 
 exports.initPassport = function(app) {
@@ -44,6 +45,12 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
+router.get('/auth/twitter', passport.authenticate('twitter'));
+
+router.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { successRedirect: '/',
+                       failureRedirect: '/users/login' }));
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
     usersModel.userPasswordCheck(username, password)
@@ -60,6 +67,20 @@ passport.use(new LocalStrategy(
   }
 ));
 
+passport.use(new TwitterStrategy({
+    consumerKey: ".. consumer key",
+    consumerSecret: ".. consumer secret",
+    callbackURL: ".. your callback URL"
+  },
+  function(token, tokenSecret, profile, done) {
+    usersModel.findOrCreate({
+      id: profile.username, username: profile.username, password: "", provider: profile.provider, familyName: profile.displayName, givenName: "", middleName: "", photos: profile.photos, emails: profile.emails
+    })
+    .then(user => done(null, user))
+    .catch(err => done(err));
+  }
+));
+
 passport.serializeUser(function(user, done) {
   done(null, user.username);
 });
@@ -69,3 +90,4 @@ passport.deserializeUser(function(username, done) {
   .then(user => done(null, user))
   .catch(err => done(err));
 });
+
