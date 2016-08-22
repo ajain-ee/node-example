@@ -1,0 +1,21 @@
+{
+  "name": "notes-responsive-app",
+  "homepage": "https://github.com/ajain-ee/node-example",
+  "authors": [
+    "anuj2jain@gmail.com"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

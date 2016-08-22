@@ -63,7 +63,7 @@ router.get('/edit', (req, res, next) => {
 		        { href: '/', text: 'Home' },
 		        { active: true, text: note.title }
 		    ],
-		    hideAddNote: true,
+		    hideAddNote: true
         });
     })
     .catch(err => { next(err); });

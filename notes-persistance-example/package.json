@@ -1,0 +1,24 @@
+{
+  "name": "notes",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "start": "node ./bin/www",
+    "start-fs": "NOTES_MODEL=models/notes-fs node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.2.0",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "file-stream-rotator": "0.0.7",
+    "fs-extra": "^0.30.0",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
